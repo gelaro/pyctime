@@ -2,11 +2,12 @@ from bs4 import BeautifulSoup
 import re
 import requests
 
-def get_timetable(test_id):
-    # test_id = 580610678
+
+def get_timetable(test_id, test_sem):
+    # test_id = 580610000
     # test_id = 560651018 #tba
     # test_id = 560610004  #time double fixed
-    test_sem = 159
+    # test_sem = 159
     res = requests.get("https://www3.reg.cmu.ac.th/regist"+str(test_sem)+"/public/result.php?id="+str(test_id))
     res.encoding = "tis-620"
 
@@ -114,7 +115,3 @@ def get_timetable(test_id):
         stdList[index_gid].append(teacher_name)
 
     return stdList
-
-
-
-
